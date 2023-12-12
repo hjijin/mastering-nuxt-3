@@ -45,4 +45,8 @@ const title = computed(() => {
 	return `${lesson.value.title} - ${course.title}`;
 });
 
+useHead({
+	title,
+});
+
 </script>
