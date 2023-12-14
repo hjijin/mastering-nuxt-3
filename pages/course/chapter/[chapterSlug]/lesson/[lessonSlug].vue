@@ -21,7 +21,7 @@
 			</NuxtLink>
 		</div>
     <VideoPlayer v-if="lesson.videoId" :video-id="lesson.videoId" />
-		<p>{{ lesson.text }}</p>
+		<p class="mb-4">{{ lesson.text }}</p>
 		<LessonCompleteButton
 			:model-value="isLessonComplete"
 			@update:model-value="toggleComplete"
@@ -53,9 +53,7 @@ useHead({
 	title,
 });
 
-const progress = useState('progress', () => {
-	return [];
-});
+const progress = useLocalStorage('progress', []);
 
 const isLessonComplete = computed(() => {
 	if (!progress.value[chapter.value.number - 1]) {
